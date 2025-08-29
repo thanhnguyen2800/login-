@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import vn.iotstar.models.Usermodel;
+
 public class DBConnectMySQL {
 
 	
@@ -37,6 +39,11 @@ public class DBConnectMySQL {
 
 	   public Connection getConnection() {
 		
+		return null;
+	   }
+
+	   public Usermodel checkLogin(String username, String password) {
+		// TODO Auto-generated method stub
 		return null;
 	   }
 	   

@@ -4,39 +4,46 @@
 <%@ taglib prefix ="c" uri = "jakarta.tags.core" %>
 <%@ taglib prefix = "fmt" uri = "jakarta.tags.fmt" %>
 <%@ taglib prefix = "fn" uri="jakarta.tags.functions" %>
+
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Đăng nhập</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
 
-<form action="${pageContext.request.contextPath}/login" method="post">
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4" style="width: 400px; border-radius: 15px;">
+        <h3 class="text-center mb-4">Đăng nhập</h3>
 
-<c:if test="${alert != null}">
-  <h3 class="alert alert-danger">${alert}</h3>
-</c:if>
+        <!-- Thông báo lỗi -->
+        <c:if test="${not empty alert}">
+            <div class="alert alert-danger text-center">${alert}</div>
+        </c:if>
 
-<div class="container">
-  <label for="uname"><b>UserName</b></label>
-  <input type="text" placeholder="Enter Username" name="uname" required>
+        <form action="login" method="post">
+            <div class="mb-3">
+                <label class="form-label">Tài khoản</label>
+                <input type="text" name="uname" class="form-control" placeholder="Nhập tên tài khoản">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mật khẩu</label>
+                <input type="password" name="psw" class="form-control" placeholder="Nhập mật khẩu">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" name="remember" class="form-check-input" id="remember">
+                <label class="form-check-label" for="remember">Ghi nhớ đăng nhập</label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+        </form>
 
-  <label for="psw"><b>Password</b></label>
-  <input type="password" placeholder="Enter Password" name="psw" required>
-
-  <button type="submit">Login</button>
-  <label>
-    <input type="checkbox" name="remember"> Remember me
-  </label>
+        <p class="text-center mt-3">
+            Chưa có tài khoản? <a href="register">Đăng ký ngay</a>
+        </p>
+    </div>
 </div>
-
-<div class="container" style="background-color:#f1f1f1">
-  <button type="button" class="cancelbtn">Cancel</button>
-  <span class="psw">Forgot <a href="#">password?</a></span>
-</div>
-</form>
-
 
 </body>
 </html>

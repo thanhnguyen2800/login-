@@ -13,5 +13,9 @@ public interface IUserDao {
 	void insert(Usermodel user);
 	
 	Usermodel findByUserName(String username);
+	
+	boolean insertUser(Usermodel user);
+	
+	Usermodel checkLogin(String username, String password);
 
 }
